@@ -1,45 +1,19 @@
 import { useState } from "react";
-import { 
-  ArrowRight, Users, Clock, Lightbulb, Presentation, 
-  Download, Github, ExternalLink, Calendar, CheckCircle, 
-  ShieldCheck, Quote, Mail, MapPin, Linkedin, Twitter, Instagram 
+import {
+  ArrowRight, Users, Clock, Lightbulb, Presentation,
+  Download, Github, ExternalLink, Calendar, CheckCircle,
+  ShieldCheck, Quote, Mail, MapPin, Linkedin, Twitter, Instagram
 } from "lucide-react";
 import { Link as ScrollLink } from "react-scroll";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
 
 import { Navigation } from "@/components/Navigation";
 import { Section } from "@/components/Section";
 import { WinnerCard } from "@/components/WinnerCard";
 import { StatsCard } from "@/components/StatsCard";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { 
-  Form, FormControl, FormField, FormItem, FormMessage 
-} from "@/components/ui/form";
 import { Separator } from "@/components/ui/separator";
-import { useCreateSubscriber } from "@/hooks/use-subscribers";
-import { insertSubscriberSchema } from "@shared/schema";
-
-// Form schema with coerce handled in backend/routes, but frontend validation is good too
-const newsletterSchema = insertSubscriberSchema;
 
 export default function Home() {
-  const { mutate: subscribe, isPending } = useCreateSubscriber();
-  
-  const form = useForm<z.infer<typeof newsletterSchema>>({
-    resolver: zodResolver(newsletterSchema),
-    defaultValues: {
-      email: "",
-    },
-  });
-
-  function onSubscribe(data: z.infer<typeof newsletterSchema>) {
-    subscribe(data, {
-      onSuccess: () => form.reset(),
-    });
-  }
 
   return (
     <div className="min-h-screen bg-background font-sans selection:bg-primary/20">
@@ -97,7 +71,7 @@ export default function Home() {
                />
                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
                  <div className="text-white">
-                    <p className="font-bold text-lg">500+ Participants</p>
+                    <p className="font-bold text-lg">200+ Participants</p>
                     <p className="text-white/80 text-sm">Innovating for better health</p>
                  </div>
                </div>
@@ -118,18 +92,18 @@ export default function Home() {
         <div className="grid md:grid-cols-3 gap-8">
           {[
             {
-              title: "AI Diagnostics",
-              desc: "Leveraging computer vision and ML to detect anomalies faster than ever.",
+              title: "AI Innovation",
+              desc: "Develop cutting-edge AI solutions for healthcare challenges",
               icon: SearchScan
             },
             {
-              title: "Patient Care",
-              desc: "Smart assistants and predictive models to improve patient outcomes.",
+              title: "50-Hour Sprint",
+              desc: "Intensive coding marathon with continuous development",
               icon: HeartPulse
             },
             {
-              title: "Data Security",
-              desc: "Blockchain and privacy-first AI to protect sensitive medical records.",
+              title: "Fast-Paced",
+              desc: "Rapid prototyping and iterative development process",
               icon: ShieldCheck
             }
           ].map((item, i) => (
@@ -149,46 +123,31 @@ export default function Home() {
         <div className="mb-12">
           <h2 className="text-3xl md:text-4xl font-bold font-display mb-4 text-center">Hall of Fame</h2>
           <p className="text-center text-muted-foreground max-w-2xl mx-auto">
-            Out of 50+ submitted prototypes, these projects stood out for their innovation, technical execution, and potential impact.
+            Out of 40+ submitted prototypes, these projects stood out for their innovation, technical execution, and potential impact.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <WinnerCard 
             rank="grand"
-            teamName="NeuralHeal"
-            projectTitle="Early Sepsis Detection System"
-            description="A real-time monitoring system using recurrent neural networks to predict sepsis onset 4 hours before clinical symptoms appear, integrating seamlessly with ICU monitors."
+            teamName="YOLO"
+            projectTitle="INTEGRATED AI-DRIVEN HOSPITAL MANAGEMENT ECOSYSTEM"
+            description="I-HMSE (Intelligent Hospital Management and Support Ecosystem) is a cloud-based, modular platform that can help hospitals with all of their operational problems. It uses a microservices architecture to bring together solutions for 54 important hospital functions, such as clinical, financial, and logistical operations."
           />
           
           <WinnerCard 
             rank="runner-up"
-            teamName="VisionCare"
-            projectTitle="RetinaScan AI"
-            description="Smartphone-based fundus photography analysis for diabetic retinopathy screening in remote areas."
+            teamName="Team Velocity"
+            projectTitle="Building a Fully Integrated Digital Hospital"
+            description="Comprehensive digital transformation platform for hospital operations."
           />
           
           <WinnerCard 
             rank="runner-up"
-            teamName="MindMeld"
-            projectTitle="Alzheimer's Companion"
-            description="Voice-activated assistant that uses NLP to detect cognitive decline patterns and assist patients with daily routine recall."
+            teamName="Med AI Bio Intel"
+            projectTitle="AI-assisted healthcare management systems"
+            description="Intelligent systems for streamlined healthcare administration and patient management."
           />
-
-          {/* Top Finalists */}
-          {[
-            { team: "MediBot", project: "Triage Assistant", desc: "Automated ER triage utilizing LLMs." },
-            { team: "GeneFlow", project: "CRISPR Targeter", desc: "Optimizing gene editing targets with ML." },
-            { team: "HeartBeat", project: "Arrhythmia Watch", desc: "Wearable data integration for cardiology." },
-          ].map((item, i) => (
-            <WinnerCard 
-              key={i}
-              rank="finalist"
-              teamName={item.team}
-              projectTitle={item.project}
-              description={item.desc}
-            />
-          ))}
         </div>
       </Section>
 
@@ -209,8 +168,8 @@ export default function Home() {
             <h2 className="text-3xl md:text-4xl font-bold font-display">Event Highlights</h2>
             <div className="space-y-4">
               {[
-                { title: "Keynote by Dr. Sarah Chen", desc: "AI ethics in modern surgery discussion." },
-                { title: "Midnight Pizza Party", desc: "Networking and refueling at 2 AM." },
+                { title: "Keynote by DR. R. Shivakumar M.D. Ph.D Chairman", desc: "Inauguration ceremony." },
+                { title: "Midnight Movie", desc: "Refreshing and refueling at 2 AM." },
                 { title: "Demo Day Pitching", desc: "3 minutes to impress the VC judges." },
               ].map((highlight, i) => (
                 <div key={i} className="flex gap-4">
@@ -225,9 +184,9 @@ export default function Home() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             {/* Unsplash: hackathon coding collaboration */}
-            <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?auto=format&fit=crop&q=80&w=800" alt="Hackathon Crowd" className="rounded-xl shadow-lg w-full h-48 object-cover" />
+            <img src="/gallery5.png" alt="Hackathon Crowd" className="rounded-xl shadow-lg w-full h-48 object-cover" />
             {/* Unsplash: presentation screen */}
-            <img src="https://images.unsplash.com/photo-1544531586-fde5298cdd40?auto=format&fit=crop&q=80&w=800" alt="Presentation" className="rounded-xl shadow-lg w-full h-48 object-cover mt-8" />
+            <img src="/gallery6.png" alt="Presentation" className="rounded-xl shadow-lg w-full h-48 object-cover mt-8" />
           </div>
         </div>
 
@@ -236,13 +195,13 @@ export default function Home() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
              // hackathon coding
-            "https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&q=80&w=400", 
+            "/gallery1.png",
              // tech team high five
-            "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=400", 
+            "/gallery2.jpg",
              // robot arm medical
-            "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=400", 
+            "/gallery3.jpg",
              // doctor ipad
-            "https://images.unsplash.com/photo-1576091160550-2187d80a18f7?auto=format&fit=crop&q=80&w=400"
+            "/gallery4.jpg"
           ].map((src, i) => (
             <div key={i} className="aspect-square rounded-xl overflow-hidden bg-slate-100">
               <img src={src} alt={`Gallery ${i}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" />
@@ -256,14 +215,13 @@ export default function Home() {
         <h2 className="text-3xl font-bold text-center mb-12">Voices from the Floor</h2>
         <div className="grid md:grid-cols-3 gap-8">
           {[
-            { text: "The mentorship quality was outstanding. We pivoted our idea thanks to feedback from real surgeons.", author: "Alex K., Participant" },
-            { text: "Incredible energy. These prototypes aren't just toys; they have real clinical potential.", author: "Dr. James Wu, Judge" },
-            { text: "Best organized hackathon I've attended in years. The API partners were super helpful.", author: "Sarah L., Developer" }
+            { text: "The mentorship quality was outstanding. We pivoted our idea thanks to feedback from real surgeons." },
+            { text: "Incredible energy. These prototypes aren't just toys; they have real clinical potential,Judge" },
+            { text: "Best organized hackathon I've attended in years. The organisers were super helpful. Participant" }
           ].map((t, i) => (
             <div key={i} className="bg-white p-8 rounded-2xl shadow-sm border border-border/50">
               <Quote className="w-8 h-8 text-primary/20 mb-4" />
               <p className="text-lg mb-6 italic text-muted-foreground">"{t.text}"</p>
-              <p className="font-bold text-foreground">{t.author}</p>
             </div>
           ))}
         </div>
@@ -299,21 +257,6 @@ export default function Home() {
       <Section id="resources" className="bg-slate-900 text-white">
         <div className="grid md:grid-cols-2 gap-12">
           <div>
-            <h2 className="text-3xl font-bold mb-6">Resources</h2>
-            <ul className="space-y-4">
-              {[
-                { label: "Winner Repositories", icon: Github },
-                { label: "Event Photo Album", icon: ExternalLink },
-                { label: "Keynote Slides (PDF)", icon: Download },
-              ].map((res, i) => (
-                <li key={i} className="flex items-center gap-3 p-4 rounded-lg bg-white/5 hover:bg-white/10 transition-colors cursor-pointer border border-white/10">
-                  <res.icon className="w-5 h-5 text-primary" />
-                  <span className="font-medium">{res.label}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
             <h2 className="text-3xl font-bold mb-6">Data Compliance</h2>
             <div className="p-6 rounded-xl bg-amber-500/10 border border-amber-500/20">
               <ShieldCheck className="w-8 h-8 text-amber-500 mb-4" />
@@ -325,62 +268,6 @@ export default function Home() {
           </div>
         </div>
       </Section>
-
-      {/* 11. SPONSORS */}
-      <Section id="sponsors" className="text-center">
-        <h2 className="text-2xl text-muted-foreground uppercase tracking-widest font-bold mb-12">Powered By</h2>
-        <div className="flex flex-wrap justify-center items-center gap-12 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
-          {/* Placeholder Logos */}
-          {["TechCorp", "MediSystems", "CloudNine", "DataFlow", "HealthAI"].map((sponsor, i) => (
-            <div key={i} className="text-2xl font-display font-bold text-slate-400 hover:text-primary transition-colors cursor-default">
-              {sponsor}
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      {/* 12. GET INVOLVED (Newsletter) */}
-      <Section id="get-involved" className="bg-primary text-white text-center">
-        <div className="max-w-2xl mx-auto">
-          <Mail className="w-12 h-12 mx-auto mb-6 opacity-90" />
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Don't Miss the Next One</h2>
-          <p className="text-blue-100 mb-8 text-lg">
-            Subscribe to our newsletter to get the full post-event report and early access tickets for MED AI THON 2026.
-          </p>
-          
-          <div className="bg-white/10 p-2 rounded-2xl backdrop-blur-sm border border-white/20">
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubscribe)} className="flex flex-col sm:flex-row gap-2">
-                <FormField
-                  control={form.control}
-                  name="email"
-                  render={({ field }) => (
-                    <FormItem className="flex-1">
-                      <FormControl>
-                        <Input 
-                          placeholder="enter your email..." 
-                          className="bg-white text-slate-900 border-0 h-12 rounded-xl focus-visible:ring-0 focus-visible:ring-offset-0" 
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage className="text-red-200 text-left px-2" />
-                    </FormItem>
-                  )}
-                />
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  disabled={isPending}
-                  className="h-12 px-8 rounded-xl bg-secondary text-white hover:bg-secondary/90 shadow-lg"
-                >
-                  {isPending ? "Joining..." : "Subscribe"}
-                </Button>
-              </form>
-            </Form>
-          </div>
-        </div>
-      </Section>
-
       {/* 13. CONTACT & 14. FOOTER */}
       <footer className="bg-slate-950 text-slate-400 py-16">
         <div className="container-width grid md:grid-cols-4 gap-12 mb-12 border-b border-slate-800 pb-12">
@@ -404,10 +291,10 @@ export default function Home() {
             <h4 className="text-white font-bold mb-4">Contact</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2">
-                <Mail className="w-4 h-4" /> hello@medaithon.com
+                <Mail className="w-4 h-4" /> medaithon50.srmtrc@gmail.com
               </li>
               <li className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" /> Innovation Hub, Tech City
+                <MapPin className="w-4 h-4" /> SRM Nagar, Trichy – Chennai Highway, Near Samayapuram, Tiruchirappalli – 621105, Tamil Nadu, India.
               </li>
             </ul>
           </div>

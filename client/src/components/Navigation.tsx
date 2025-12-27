@@ -9,7 +9,6 @@ const navLinks = [
   { name: "Winners", to: "winners" },
   { name: "Highlights", to: "highlights" },
   { name: "Timeline", to: "timeline" },
-  { name: "Sponsors", to: "sponsors" },
 ];
 
 export function Navigation() {
@@ -35,14 +34,13 @@ export function Navigation() {
           to="hero"
           smooth={true}
           duration={500}
-          className="flex items-center gap-2 cursor-pointer group"
+          className="flex items-center cursor-pointer group"
         >
-          <div className="bg-primary text-white p-2 rounded-lg group-hover:bg-primary/90 transition-colors">
-            <Activity className="h-6 w-6" />
-          </div>
-          <span className="font-display font-bold text-xl tracking-tight text-foreground">
-            MED<span className="text-primary">AI</span>THON
-          </span>
+          <img
+            src="/logo.png"
+            alt="MedAI-Thon Logo"
+            className="h-16 w-auto group-hover:opacity-90 transition-opacity"
+          />
         </Link>
 
         {/* Desktop Nav */}
@@ -59,11 +57,6 @@ export function Navigation() {
               {link.name}
             </Link>
           ))}
-          <Link to="get-involved" smooth={true} duration={500} offset={-80}>
-            <Button size="sm" className="bg-primary hover:bg-primary/90 text-white rounded-full px-6">
-              Get Updates
-            </Button>
-          </Link>
         </div>
 
         {/* Mobile Toggle */}

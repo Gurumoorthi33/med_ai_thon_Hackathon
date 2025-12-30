@@ -42,6 +42,14 @@ export default function Home() {
               MED<span className="text-primary">AI</span>THON <br/> 2025
             </h1>
             
+            <div className="w-full max-w-md mx-auto lg:mx-0">
+              <img 
+                src="/code.jpeg" 
+                alt="MED AI THON 2025 Code" 
+                className="w-full h-auto rounded-lg shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 cursor-pointer"
+              />
+            </div>
+            
             <p className="text-xl text-muted-foreground md:w-3/4 leading-relaxed">
               Thank you for an incredible 50 hours of innovation. Witnessing the future of AI in healthcare, built by you.
             </p>

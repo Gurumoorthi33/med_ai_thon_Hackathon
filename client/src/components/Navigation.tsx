@@ -38,7 +38,7 @@ export function Navigation() {
           className="flex items-center cursor-pointer group"
         >
           <img
-            src="/logo3.png"
+            src="/logo4.png"
             alt="MedAI-Thon Logo"
             className="h-16 w-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 hover:drop-shadow-lg mix-blend-multiply"
           />

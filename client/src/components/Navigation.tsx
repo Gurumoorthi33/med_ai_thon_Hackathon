@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-scroll";
-import { Menu, X, Activity } from "lucide-react";
+// @ts-ignore
+import { Link as ScrollLink } from "react-scroll";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
@@ -30,7 +31,7 @@ export function Navigation() {
       }`}
     >
       <div className="container-width flex items-center justify-between">
-        <Link
+        <ScrollLink
           to="hero"
           smooth={true}
           duration={500}
@@ -39,14 +40,14 @@ export function Navigation() {
           <img
             src="/logo3.png"
             alt="MedAI-Thon Logo"
-            className="h-16 w-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 hover:drop-shadow-lg"
+            className="h-16 w-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 hover:drop-shadow-lg mix-blend-multiply"
           />
-        </Link>
+        </ScrollLink>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link
+            <ScrollLink
               key={link.name}
               to={link.to}
               smooth={true}
@@ -55,7 +56,7 @@ export function Navigation() {
               className="text-sm font-medium text-muted-foreground hover:text-primary cursor-pointer transition-colors"
             >
               {link.name}
-            </Link>
+            </ScrollLink>
           ))}
         </div>
 
@@ -80,7 +81,7 @@ export function Navigation() {
           >
             <div className="flex flex-col p-6 gap-4">
               {navLinks.map((link) => (
-                <Link
+                <ScrollLink
                   key={link.name}
                   to={link.to}
                   smooth={true}
@@ -90,11 +91,11 @@ export function Navigation() {
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}
-                </Link>
+                </ScrollLink>
               ))}
-              <Link to="get-involved" smooth={true} duration={500} offset={-80} onClick={() => setIsOpen(false)}>
+              <ScrollLink to="get-involved" smooth={true} duration={500} offset={-80} onClick={() => setIsOpen(false)}>
                 <Button className="w-full mt-4">Get Updates</Button>
-              </Link>
+              </ScrollLink>
             </div>
           </motion.div>
         )}

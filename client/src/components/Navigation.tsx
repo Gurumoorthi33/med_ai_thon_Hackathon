@@ -40,7 +40,7 @@ export function Navigation() {
           <img
             src="/logo4.png"
             alt="MedAI-Thon Logo"
-            className="h-20 w-auto group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 hover:drop-shadow-lg mix-blend-multiply"
+            className="h-16 w-48 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 hover:drop-shadow-lg mix-blend-multiply"
           />
         </ScrollLink>
 
